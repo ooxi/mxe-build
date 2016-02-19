@@ -6,8 +6,8 @@ sudo: required
 env:
   matrix:
      - BUILD='a52dec'
-     - BUILD='agg'
-     - BUILD='alure'
+#     - BUILD='agg'
+#     - BUILD='alure'
 
 # @see http://mxe.cc/#requirements-debian
 before_install:
@@ -18,5 +18,6 @@ before_install:
 script:
   - echo "Building ${BUILD} on x86_64-w64-mingw32.static"
   - cd mxe
+  - travis_wait make MXE_TARGETS='x86_64-w64-mingw32.static' "gcc"
   - make MXE_TARGETS='x86_64-w64-mingw32.static' "${BUILD}"
 
