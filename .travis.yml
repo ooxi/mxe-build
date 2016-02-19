@@ -5,7 +5,9 @@ sudo: required
 
 env:
   matrix:
-     - BUILD='gcc' MXE_TARGETS='x86_64-w64-mingw32.static'
+     - BUILD='a52dec'
+     - BUILD='agg'
+     - BUILD='alure'
 
 # @see http://mxe.cc/#requirements-debian
 before_install:
@@ -14,7 +16,7 @@ before_install:
   - sudo apt-get install -y g++-multilib libc6-dev-i386
 
 script:
-  - echo "Building ${BUILD} on ${MXE_TARGETS}"
+  - echo "Building ${BUILD} on x86_64-w64-mingw32.static"
   - cd mxe
-  - make 
+  - make MXE_TARGETS='x86_64-w64-mingw32.static' "${BUILD}"
 
