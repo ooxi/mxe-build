@@ -18,7 +18,7 @@ before_install:
 script:
   - echo "Building ${BUILD} on x86_64-w64-mingw32.static"
   - cd mxe
-  - travis_wait make MXE_TARGETS='x86_64-w64-mingw32.static' "binutils"
-  - travis_wait make MXE_TARGETS='x86_64-w64-mingw32.static' "gcc"
+  - make MXE_TARGETS='x86_64-w64-mingw32.static' "binutils"
+  - make MXE_TARGETS='x86_64-w64-mingw32.static' "gcc"
   - make MXE_TARGETS='x86_64-w64-mingw32.static' "${BUILD}"
 
